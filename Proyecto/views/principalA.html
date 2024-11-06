@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LycaosPOS - Punto de venta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #1a1a2e;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .header .title {
+            font-size: 18px;
+        }
+        .header .date-time {
+            font-size: 14px;
+        }
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .header .user-info .user {
+            margin-right: 10px;
+        }
+        .header  .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid white;
+        }
+        .header .user-info .cloud {
+            font-size: 20px;
+        }
+        .sidebar {
+            background-color: #0d1b2a;
+            width: 60px;
+            height: calc(100vh - 50px); /* Ajuste de altura */
+            position: fixed;
+            top: 40px; /* Comienza debajo del header */
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+        }
+        .sidebar .icon {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .sidebar .icon.active {
+            background-color: #00eeff;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        .main-content {
+            margin-left: 60px;
+            padding: 20px;
+            padding-top: 70px; /* Añadir espacio para el header */
+        }
+        .main-content .cart {
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 24px;
+            margin-top: 100px;
+        }
+        .main-content .cart i {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+        .categories {
+            position: fixed;
+            right: 0;
+            top: 50px;
+            width: 200px;
+            background-color: #1a1a2e;
+            padding: 10px;
+        }
+        .categories .category {
+            color: white;
+            padding: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .categories .category:nth-child(1) { background-color: #b22222; }
+        .categories .category:nth-child(2) { background-color: #800080; }
+        .categories .category:nth-child(3) { background-color: #008000; }
+        .categories .category:nth-child(4) { background-color: #0000ff; }
+        .categories .category:nth-child(5) { background-color: #800080; }
+        .categories .category:nth-child(6) { background-color: #808080; }
+        .categories .category:nth-child(7) { background-color: #a9a9a9; }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 60px;
+            right: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .footer .total {
+            font-size: 18px;
+        }
+        .footer .pay-button {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="title">IF-SYSTEM</div>
+        <div class="date-time">Miercoles 06 de octubre del 2024 - 11:02:26</div>
+        <div class="user-info">
+            <div class="user">USERNAME</div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="icon" onclick="selectMenuItem(this)"><i class="fas fa-home"></i></div>
+        <div class="icon" onclick="selectMenuItem(this)"><i class="fas fa-user"></i></div>
+        <div class="icon" onclick="selectMenuItem(this)"><i class="fas fa-file-alt"></i></div>
+        <div class="icon" onclick="selectMenuItem(this)"><i class="fas fa-cogs"></i></div>
+        <div class="icon" onclick="selectMenuItem(this)"><i class="fas fa-chart-pie"></i></div>
+        <div class="icon" onclick="selectMenuItem(this)"><i class="fas fa-sign-out-alt"></i></div>
+    </div>
+    <div class="main-content">
+        <div class="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <div>Tu carrito está vacío</div>
+        </div>
+    </div>
+    <div class="categories">
+        <div class="category">Categoria 1</div>
+        <div class="category">Categoria 2</div>
+        <div class="category">Categoria 3</div>
+        <div class="category">Categoria 4</div>
+        <div class="category">Categoria 5</div>
+        <div class="category">Categoria 6</div>
+        <div class="category">Categoria 7</div>
+    </div>
+    <div class="footer">
+        <div class="total">Total: $0.00</div>
+        <div class="pay-button">COBRAR</div>
+    </div>
+
+    <script>
+        // Función para manejar la selección del menú
+        function selectMenuItem(element) {
+            // Quitar la clase 'active' de todos los elementos
+            document.querySelectorAll('.sidebar .icon').forEach(function(item) {
+                item.classList.remove('active');
+            });
+            // Añadir la clase 'active' al elemento seleccionado
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
